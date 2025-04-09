@@ -10,7 +10,10 @@
 
 ### Installation
 ```bash
-pip install -e .
+# clone the repository
+git clone https://github.com/madgraph-ml/mlutils.git
+# then install
+pip install .
 ```
 
 ### Example Usage
