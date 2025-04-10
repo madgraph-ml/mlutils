@@ -38,7 +38,7 @@ def test_documenter_creates_folder_and_file():
     path = doc.add_file("dummy.txt")
     with open(path, "w") as f:
         f.write("hello")
-    assert os.path.exists(path)
+    assert path.exists()
     doc.close()
     shutil.rmtree(doc.basedir)
     shutil.rmtree(temp_root)

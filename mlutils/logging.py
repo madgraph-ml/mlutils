@@ -15,13 +15,13 @@ class Documenter:
 
     def __init__(self, run_name, existing_run=None, read_only=False):
         self.run_name = run_name
-        script_dir = Path(__file__).resolve().parent
+        working_dir = Path.cwd()
 
         if existing_run is None:
             now = datetime.now()
             while True:
                 full_run_name = now.strftime("%Y%m%d_%H%M%S") + f"_{run_name}"
-                self.basedir = script_dir.parent / "results" / full_run_name
+                self.basedir = working_dir / "results" / full_run_name
                 try:
                     self.basedir.mkdir(parents=True)
                     break
@@ -43,7 +43,7 @@ class Documenter:
             old_dir.mkdir(exist_ok=True)
             shutil.move(str(new_file), str(old_dir / new_file.name))
 
-        return str(new_file)
+        return new_file
 
     def get_file(self, name, add_run_name=False):
         name = Path(name)
