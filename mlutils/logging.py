@@ -1,9 +1,11 @@
-from pathlib import Path
-import sys
-import shutil
 import atexit
+import shutil
+import sys
 from datetime import datetime, timedelta
+from pathlib import Path
+
 from .gitinfo import get_git_commit_hash, is_git_dirty
+
 
 class Documenter:
     """
@@ -48,7 +50,7 @@ class Documenter:
         if add_run_name:
             name = name.with_name(f"{name.stem}_{self.run_name}{name.suffix}")
         return self.basedir / name
-    
+
     def log_git_state(self):
         git_file = self.get_file("gitinfo.txt")
         with open(git_file, "w") as f:
