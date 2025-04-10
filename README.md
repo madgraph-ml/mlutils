@@ -14,7 +14,11 @@
 
 ### Installation
 ```bash
-pip install -e .
+# clone the repository
+git clone https://github.com/madgraph-ml/mlutils.git
+# then install [optional in dev mode]
+cd mlutils
+pip install [-e] .
 ```
 
 ### Example Usage
